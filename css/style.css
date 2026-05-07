@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+body::-webkit-scrollbar,
+.addNewContact .card::-webkit-scrollbar {
+    display: none;
+}
+
+.title>span {
+    background: linear-gradient(-135deg, #7729FC 20%, #5936F7 70%);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+p {
+    font-size: .75rem;
+    line-height: 1rem;
+    color: #6a7282;
+    font-weight: 500;
+}
+
+.nav-right .btn {
+    background: linear-gradient(135deg, #7729FC 20%, #5936F7 70%);
+    color: white;
+    transition: all .2s;
+}
+
+.nav-right .btn:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 10px -5px #7729FC;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: url(../imgs/avatar-1.jpg) center /cover no-repeat;
+}
+
+.hero {
+    min-height: 100vh;
+    background-color: #EFF5FC;
+}
+
+.card .item>span {
+
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.total {
+    color: #8B8182;
+    font-size: .75rem;
+    line-height: 1rem;
+}
+
+.total-counter {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+.card {
+    transition: all .2s;
+}
+
+.card:hover {
+    box-shadow: 0px 8px 10px -8px #00000048 !important;
+
+}
+
+.fav .item {
+    background-color: #FFFBEB;
+}
+
+.emarg .item {
+    background-color: #FEF2F2;
+}
+
+
+
+.contact-img {
+    background: url(../imgs/photo-1529692236671-f1f6cf9683ba.avif) center / cover no-repeat;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+}
+
+.favs .item {
+    background-color: #F9FAFB;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all .3s;
+}
+
+.favs .item:hover {
+    background-color: #FFFBEB;
+    cursor: pointer;
+}
+
+.emarg .favs .item {
+    background-color: #F9FAFB;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all .3s;
+}
+
+.emarg .favs .item:hover {
+    background-color: #FEF2F2;
+    cursor: pointer;
+}
+
+.favs-item {
+    background-color: #DBEAFE;
+    padding: 5px;
+}
+
+.favs-item:hover {
+    background-color: #1f5dae5f;
+}
+
+.info-footer .fa-star:hover {
+    color: #F9D67B;
+}
+
+.info-footer .fa-pencil:hover {
+    color: blue;
+}
+
+.info-footer .fa-heart-pulse:hover {
+    color: red;
+}
+
+.info-footer .fa-trash:hover {
+    color: red;
+}
+
+.info-footer .fa-phone:hover {
+    color: rgb(24, 185, 24);
+}
+
+.info-footer .fa-envelope:hover {
+    color: purple;
+}
+
+.addNewContact {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.332);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fa-xmark:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.photo .icon {
+    background: linear-gradient(135deg, #4596FF 20%, #206CFE 70%);
+
+    padding: 25px;
+    border-radius: 50%;
+}
+
+.photo .Change-Photo {
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.photo .Change-Photo:hover {
+    background-color: rgba(0, 0, 0, 0.201);
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: rgba(0, 0, 0, 0.171);
+    padding: 5px 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: rgba(0, 0, 0, 0.318);
+}
+
+.save {
+    background: linear-gradient(to right, #7C25FE 20%, #5438F7 70%);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.save:hover {
+    background: linear-gradient(to right, #7721f9 20%, #482af2 70%);
+
+
+}
+
+@media (min-width:992px) {
+    .nav-right {
+        width: 25%;
+    }
+
+    .addNewContact .card {
+        width: 35%;
+    }
+}
+
+@media (max-width:992px) {
+    .addNewContact .card {
+        width: 90%;
+
+    }
+}
