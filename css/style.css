@@ -217,6 +217,30 @@ p {
 
 }
 
+
+
+.badge-fav {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: gold;
+  color: black;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
+.badge-emarg {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 50%;
+}
+
 @media (min-width:992px) {
     .nav-right {
         width: 25%;

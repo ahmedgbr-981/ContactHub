@@ -66,8 +66,8 @@
                             <span style="background: linear-gradient(135deg, #FFB100 20%, #FF7600 70%);"><i
                                     class="fa-solid fa-star"></i></span>
                             <div class="ps-2 d-flex flex-column">
-                                <span class="total">TOTAL</span>
-                                <span class="total-counter">0</span>
+                                <span class="total">Favorites</span>
+                                <span class="total-counter" id="favCounter">0</span>
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,8 @@
                             <span style="background: linear-gradient(135deg, #FC1B4F 20%, #EA001B 70%);"><i
                                     class="fa-solid fa-heart-pulse"></i></span>
                             <div class="ps-2 d-flex flex-column">
-                                <span class="total">TOTAL</span>
-                                <span class="total-counter">0</span>
+                                <span class="total">Emergency</span>
+                                <span class="total-counter" id="emargCounter">0</span>
                             </div>
                         </div>
                     </div>
@@ -92,12 +92,13 @@
                         <h2>All Contacts</h2>
                         <p>Manage and organize your <span>0</span> contacts</p>
                         <input class="form-control p-3 mb-4" type="search" id="search"
-                            placeholder="🔍 search by name, phone, email...">
+                            placeholder="🔍 search by name, phone, email..." oninput="searchContacts()">
                         <div class="contact-info">
                             <div class="row" id="contactsContainer">
                             </div>
                         </div>
                     </div>
+                    <!-- add to fav&emarg -->
                     <div class="col-lg-3">
                         <div class="fav mb-4 card rounded-4 overflow-hidden mt-4 mt-md-0">
                             <div class="item p-2  d-flex align-items-start ">
@@ -108,21 +109,12 @@
                                     <p>Quick access to starred contacts</p>
                                 </div>
                             </div>
-                            <div class="favs d-flex align-items-center justify-content-center py-3">
+                            <div id="fav">
 
-                                <div class="item d-flex ">
-                                    <div class="contact-img"></div>
-                                    <div class="info ps-2">
-                                        <span>ahmed</span><br> <br>
-
-                                        <span style="color: #6a7282;">01123545685</span>
-
-                                        <span class="favs-item" style=" padding: 5px;border-radius: 10px;"><i
-                                                class="fa-solid fa-phone" style="color: blue;"></i></span>
-                                    </div>
-                                </div><br>
                             </div>
+                  
                         </div>
+                        <!-- add to emarg -->
                         <div class="emarg card rounded-4 overflow-hidden">
                             <div class="item p-2  d-flex align-items-start">
                                 <span style="background: linear-gradient(135deg, #FC1B4F 20%, #EA001B 70%);"><i
@@ -130,21 +122,10 @@
                                 <div class="ps-2">
                                     <h5 class="m-0">Emergency</h5>
                                     <p>Important contacts for urgent calls</p>
-                                    <br>
                                 </div>
                             </div>
-                            <div class="favs d-flex align-items-center justify-content-center py-3">
-                                <div class="item d-flex">
-                                    <div class="contact-img"></div>
-                                    <div class="info ps-2">
-                                        <span>ahmed</span><br> <br>
+                            <div id="emarg">
 
-                                        <span style="color: #6a7282;">01123545685</span>
-
-                                        <span class="favs-item" style=" padding: 5px;border-radius: 10px;"><i
-                                                class="fa-solid fa-phone" style="color: blue;"></i></span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,7 +151,8 @@
             </label>
             <input type="text" name="" id="fname" placeholder="full name" class="form-control my-2"
                 oninput="validation(this, 'fnameAlert')">
-            <p class="alert alert-danger d-none" id="fnameAlert">Name should contain only letters and at least one space (2-50 characters)
+            <p class="alert alert-danger d-none" id="fnameAlert">Name should contain only letters and at least one space
+                (2-50 characters)
             </p>
             <label for="fname" class="my-2">
                 Phone Number <span style="color: red;">*</span>
@@ -185,13 +167,13 @@
             </label>
             <input type="text" name="" id="EmailAddress" placeholder="Email Address" class="form-control my-2"
                 oninput="validation(this, 'emailAlert')">
-             <p class="alert alert-danger d-none" id="emailAlert">Please enter a valid email address
+            <p class="alert alert-danger d-none" id="emailAlert">Please enter a valid email address
             </p>
             <label for="fname" class="my-2">
                 Address
             </label>
             <input type="text" name="" id="Address" placeholder="Enter Address" class="form-control my-2">
-            
+
 
             <label for="group" class="py-3"> group
             </label>
@@ -217,9 +199,10 @@
             </div>
 
             <div class="add-btns mt-4 d-flex justify-content-center">
-                <button class="cancel" onclick="showAddContact(this)">cancel</button>
+                <button class="cancel" onclick="showAddContact(this);">cancel</button>
                 <button class="save" onclick="addContact()" id="save">✔ save contact</button>
-                <button class="btn btn-warning d-none ms-3" id="update" onclick="updateContact()">✔ update contact</button>
+                <button class="btn btn-warning d-none ms-3" id="update" onclick="updateContact()">✔ update
+                    contact</button>
             </div>
         </div>
     </div>
