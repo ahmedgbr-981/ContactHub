@@ -35,6 +35,13 @@ function showAddContact(element) {
   }
 }
 
+function closeForm(event) {
+  if (event.target.id === "addNewContact") {
+    addNewContact.classList.add("d-none");
+    clear();
+  }
+}
+
 function validation(ele, alertId) {
   alertId = document.getElementById(alertId);
 
