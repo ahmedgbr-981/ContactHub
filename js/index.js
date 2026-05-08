@@ -105,6 +105,8 @@ function addContact() {
         ? URL.createObjectURL(photoInput.files[0])
         : "default.jpg",
     };
+    save.classList.add("d-none");
+  updatebtn.classList.remove("d-none")
     contacts.push(contact);
     if (contact.fav) {
       favs.push({
