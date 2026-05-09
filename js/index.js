@@ -29,6 +29,8 @@ if (localStorage.getItem("contacts") !== null) {
 function showAddContact(element) {
   if (element.id == "addContact") {
     addNewContact.classList.remove("d-none");
+    save.classList.remove("d-none");
+    updatebtn.classList.add("d-none");
   } else {
     clear();
     addNewContact.classList.add("d-none");
@@ -85,6 +87,7 @@ function validation(ele, alertId) {
 }
 
 function addContact() {
+  addNewContact.classList.add("d-none");
   if (
     validation(fname, "fnameAlert") &&
     validation(PhoneNumber, "phoneAlert") &&
@@ -127,7 +130,7 @@ function addContact() {
     console.log(contacts);
     localStorage.setItem("contacts", JSON.stringify(contacts));
 
-    showAddContact(save.id);
+    // showAddContact(save.id);
     display();
     displayFav();
     displayEmarg();
@@ -206,15 +209,34 @@ function clear() {
   group.value = null;
   PhoneNumber.value = null;
   notes.value = null;
+  favCheck.checked = false; 
+  emargCheck.checked = false; 
 }
 
 function deleteContact(index) {
-  removeFav(index);
-  removeEmarg(index);
-  contacts.splice(index, 1);
-  localStorage.setItem("contacts", JSON.stringify(contacts));
-  display();
-  console.log("ok");
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      removeFav(index);
+      removeEmarg(index);
+      contacts.splice(index, 1);
+      localStorage.setItem("contacts", JSON.stringify(contacts));
+      display();
+      console.log("deleted");
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success",
+      });
+    }
+  });
 }
 
 function edit(index) {
@@ -289,7 +311,7 @@ function updateContact() {
     localStorage.setItem("emargs", JSON.stringify(emargs));
 
     addNewContact.classList.add("d-none");
-    save.classList.remove("d-none");
+    save.classList.add("d-none");
     updatebtn.classList.add("d-none");
 
     display();
